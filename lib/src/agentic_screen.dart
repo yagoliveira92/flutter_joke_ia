@@ -51,8 +51,8 @@ class _AgenticScreenState extends State<AgenticScreen> {
               children: [
                 Image.asset(
                   'assets/ary_toledo.png', // Replace with your image path
-                  width: 80,
-                  height: 80,
+                  width: 180,
+                  height: 180,
                 ),
                 const SizedBox(height: 8.0),
                 const Text(
