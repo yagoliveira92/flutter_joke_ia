@@ -1,8 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/src/agentic_screen.dart';
+import 'package:myapp/firebase_options.dart';
+import 'package:myapp/src/viewmodels/joke_viewmodel.dart';
+import 'package:myapp/src/views/agentic_screen.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => JokeViewModel())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
